@@ -11,6 +11,13 @@ engine = create_engine('sqlite:///banking.db')
 Session = sessionmaker(bind=engine)
 session = Session()
 
+# Delete existing data
+session.query(Branch).delete()
+session.query(User).delete()
+session.commit()
+
+
+
 # creating a faker instance
 faker = Faker()
 
@@ -27,3 +34,23 @@ for i in range(10):
 
 session.add_all(users)
 session.commit()
+
+#import ipdb; ipdb.set_trace()
+
+# generating 10 random Bank branch details to fill the database
+
+branchs = []
+
+# branch_name= ['RBC Toronto', 'RBC Ajax','RBC Whitby','RBC Niagara','RBC Waterloo','RBC Hamilton','RBC Calgery',]
+
+for i in range(10):
+    branch= Branch(
+        branch_address=faker.address(),
+        branch_contactno=faker.phone_number()
+    )
+    branchs.append(branch)
+
+session.add_all(branchs)
+session.commit()
+
+#import ipdb; ipdb.set_trace()
