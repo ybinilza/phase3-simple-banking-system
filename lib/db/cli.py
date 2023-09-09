@@ -63,7 +63,24 @@ def deposit_money(user_name):
 #Withdrawing Funds
 
 def withdraw_money(user_name):
-    pass
+    user = session.query(User).filter_by(name=user_name).first()
+    #print(user)
+    if user == None:
+        print("Customer not found ")
+    else: 
+        print("Please Enter Withdraw Amount : ")
+        amount=int(input())
+        balance=user.account_balance - amount
+        if balance>=100:
+            amount=user.account_balance - amount
+            session.query(User).filter_by(name=user_name).update({User.account_balance :amount})
+            session.commit()
+        else:
+            print("Sorry.. You dont have sufficent balance to withdraw funds")
+
+
+        
+    
 
 def check_balance(user_name):
     pass

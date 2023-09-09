@@ -21,10 +21,10 @@ class User(Base):
     
 
     def __repr__(self):
-        return f"User {self.id}: " \
+        return f"Customer id :{self.id}: " \
             + f"{self.name}, " \
-            + f"Account Type {self.account_type}, " \
-            + f"Account Balance {self.account_balance}" 
+            + f"Account Type :  {self.account_type}, " \
+            + f"Account Balance :  {self.account_balance}" 
 
 
 
@@ -35,7 +35,7 @@ class Branch(Base):
     branch_contactno=Column(String())
 
     def __repr__(self):
-        return f"Branch {self.id}: " \
-            + f"Branch Address{self.branch_address}, " \
-            + f"Contact Number {self.branch_contactno} "
+        return f"Branch : {self.id}: " \
+            + f"Branch Address : {self.branch_address}, " \
+            + f"Contact Number : {self.branch_contactno} "
 
