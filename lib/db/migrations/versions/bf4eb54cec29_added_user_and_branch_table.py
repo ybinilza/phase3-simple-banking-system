@@ -1,8 +1,8 @@
-"""Added user and branch
+"""Added User and Branch table
 
-Revision ID: 6165c069630c
-Revises: 699355edd05e
-Create Date: 2023-09-08 23:39:01.919101
+Revision ID: bf4eb54cec29
+Revises: 65d9f10da5fd
+Create Date: 2023-09-09 01:19:22.036361
 
 """
 from typing import Sequence, Union
@@ -12,8 +12,8 @@ import sqlalchemy as sa
 
 
 # revision identifiers, used by Alembic.
-revision: str = '6165c069630c'
-down_revision: Union[str, None] = '699355edd05e'
+revision: str = 'bf4eb54cec29'
+down_revision: Union[str, None] = '65d9f10da5fd'
 branch_labels: Union[str, Sequence[str], None] = None
 depends_on: Union[str, Sequence[str], None] = None
 
@@ -31,7 +31,6 @@ def upgrade() -> None:
     sa.Column('name', sa.String(), nullable=True),
     sa.Column('account_type', sa.String(), nullable=True),
     sa.Column('account_balance', sa.Integer(), nullable=True),
-    sa.Column('branch_id', sa.Integer(), nullable=True),
     sa.PrimaryKeyConstraint('id')
     )
     # ### end Alembic commands ###
