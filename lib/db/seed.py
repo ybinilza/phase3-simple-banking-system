@@ -23,7 +23,7 @@ faker = Faker()
 
 # generating 10 sample users to fill the database
 users = []
-account_types = ['Checking', 'Saving', 'High Interest Savings']
+account_types = ['Checking', 'Savings', 'High Interest Savings']
 for i in range(10):
     user = User(
         name=faker.user_name(),
