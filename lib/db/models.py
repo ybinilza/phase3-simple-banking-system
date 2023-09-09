@@ -33,4 +33,9 @@ class Branch(Base):
     branch_address= Column(String())
     branch_contactno=Column(String())
 
+    def __repr__(self):
+        return f"Branch {self.id}: " \
+            + f"Branch Address{self.branch_address}, " \
+            + f"Contact Number {self.branch_contactno} "
+
     
