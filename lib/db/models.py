@@ -19,11 +19,18 @@ class User(Base):
     account_balance=Column(Integer())
     branch_id=Column(Integer())
 
+    def __repr__(self):
+        return f"User {self.id}: " \
+            + f"{self.name}, " \
+            + f"Account Type {self.account_type}, " \
+            + f"Account Balance {self.account_balance}" 
+
+
 
 class Branch(Base):
     __tablename__ = 'branch'
     id = Column(Integer(), primary_key=True)
     branch_address= Column(String())
     branch_contactno=Column(String())
-    
+
     
