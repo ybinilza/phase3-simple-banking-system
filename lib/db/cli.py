@@ -50,7 +50,7 @@ def add_user():
 
 def deposit_money(user_name):
     user = session.query(User).filter_by(name=user_name).first()
-    print(user)
+    #print(user)
     if user == None:
         print("Customer not found ")
     else: 
@@ -60,6 +60,13 @@ def deposit_money(user_name):
         session.query(User).filter_by(name=user_name).update({User.account_balance :amount})
         session.commit()
 
+#Withdrawing Funds
+
+def withdraw_money(user_name):
+    pass
+
+def check_balance(user_name):
+    pass
 
 
 
@@ -76,6 +83,12 @@ if __name__ == '__main__':
     elif choice == 3:
         user_name=input("Enter Account holder name : ")
         deposit_money(user_name)
+    elif choice == 4:
+        user_name=input("Enter Account holder name : ")
+        withdraw_money(user_name)
+    elif choice == 3:
+        user_name=input("Enter Account holder name : ")
+        check_balance(user_name)
     else:
         print("Invalid Choice")
     
