@@ -83,31 +83,50 @@ def withdraw_money(user_name):
     
 
 def check_balance(user_name):
-    pass
+    user = session.query(User).filter_by(name=user_name).first()
+    if user == None:
+        print("Customer not found ")
+    else: 
+        print(f"Customer name : {user.name} Balance : {user.account_balance}")
+
 
 
 
 if __name__ == '__main__':
-    print("Please select the following options ")
-    print(" 1. Show Customer Details \n 2. Add User \n 3. Deposit Money \n 4. Withdraw Money \n 5. Check Balance ")
-    choice=int(input("Enter your choice : "))
-    
-    if choice == 1:
-       customer=show_customer_details()
-       print(customer)
-    elif choice == 2:
-        add_user()
-    elif choice == 3:
-        user_name=input("Enter Account holder name : ")
-        deposit_money(user_name)
-    elif choice == 4:
-        user_name=input("Enter Account holder name : ")
-        withdraw_money(user_name)
-    elif choice == 3:
-        user_name=input("Enter Account holder name : ")
-        check_balance(user_name)
+    print("SELECT YOUR ROLE ")
+    print("-----------------")
+    print("1. Banker \n2. Customer ")
+    role=int(input())
+   # print(" 1. Show Customer Details \n 2. Add User \n 3. Deposit Money \n 4. Withdraw Money \n 5. Check Balance ") 
+    if(role == 1):
+        print("Please select the following options ")
+        print(" 1. Show Customer Details \n 2. Add User \n")
+        choice=int(input("Enter your choice : "))
+        if choice == 1:
+            customer=show_customer_details()
+            print(customer)
+        elif choice == 2:
+            add_user()
+        else:
+            print("Invalid Input...Exiting........")
+    elif role ==2:
+        print("Please select the following options ")
+        print(" 1. Deposit Money \n 2. Withdraw Money \n 3. Check Balance ")
+        choice=int(input("Enter your choice : "))
+        if choice ==1:
+            user_name=input("Enter Account holder name : ")
+            deposit_money(user_name)
+        elif choice == 2:
+            user_name=input("Enter Account holder name : ")
+            withdraw_money(user_name)
+        elif choice == 3:
+            user_name=input("Enter Account holder name : ")
+            check_balance(user_name)
+        else:
+            print("Invalid Input...Exiting........")
     else:
-        print("Invalid Choice")
+        print("Invalid Input...Exiting........")
+
     
     
    
