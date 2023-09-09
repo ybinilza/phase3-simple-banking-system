@@ -17,7 +17,8 @@ class User(Base):
     name = Column(String())
     account_type = Column(String())
     account_balance=Column(Integer())
-    branch_id=Column(Integer())
+    
+    
 
     def __repr__(self):
         return f"User {self.id}: " \
@@ -38,4 +39,3 @@ class Branch(Base):
             + f"Branch Address{self.branch_address}, " \
             + f"Contact Number {self.branch_contactno} "
 
-    
