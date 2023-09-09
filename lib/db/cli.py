@@ -51,12 +51,14 @@ def add_user():
 def deposit_money(user_name):
     user = session.query(User).filter_by(name=user_name).first()
     print(user)
-    
-    print("Deposit Amount : ")
-    amount=int(input())
-    amount=user.account_balance + amount
-    session.query(User).filter_by(name=user_name).update({User.account_balance :amount})
-    session.commit()
+    if user == None:
+        print("Customer not found ")
+    else: 
+        print("Deposit Amount : ")
+        amount=int(input())
+        amount=user.account_balance + amount
+        session.query(User).filter_by(name=user_name).update({User.account_balance :amount})
+        session.commit()
 
 
 
