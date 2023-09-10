@@ -18,6 +18,7 @@ class User(Base):
     account_type = Column(String())
     account_balance=Column(Integer())
     branch_id= Column(Integer(),ForeignKey('branch.id'))
+    branch = relationship('Branch', back_populates='users')
     
     
 
@@ -34,7 +35,7 @@ class Branch(Base):
     id = Column(Integer(), primary_key=True)
     branch_address= Column(String())
     branch_contactno=Column(String())
-    user=relationship('User', backref=backref('user'))
+    users = relationship('User', back_populates='branch')
 
     def __repr__(self):
         return f"Branch : {self.id}: " \
