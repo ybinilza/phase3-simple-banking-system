@@ -19,6 +19,16 @@ def show_customer_details():
     return customers
 # Adding new Customer
 
+branch_code= {
+                "1" :'RBC Toronto', 
+                "2" : 'RBC Ajax',
+                "3" :'RBC Whitby',
+                "4" :'RBC Niagara',
+                "5" :'RBC Waterloo',
+                "6" :'RBC Hamilton',
+                "7"  : 'RBC Calgery'
+                }
+
 def add_user():
     name=input("User name : ")
     print("Select Account Type")
