@@ -26,14 +26,15 @@ branch_code= {
                 "4" :'RBC Niagara',
                 "5" :'RBC Waterloo',
                 "6" :'RBC Hamilton',
-                "7"  : 'RBC Calgery'
+                "7"  :'RBC Calgery'
                 }
 
 def add_user():
     name=input("User name : ")
-    print("Select Account Type")
     
-    print("1. Checking \n 2. Savings \n 3. High Interest Savings ")
+    print("Select branch - \n1. RBC Toronto \n2. RBC Ajax  \n3. RBC Whitby  \n4. RBC Niagara \n5. RBC Waterloo \n6. RBC Hamilton\n7. RBC Calgery" )
+    id=int(input())
+    print("1. Checking \n2. Savings \n13. High Interest Savings ")
     choice=int(input())
 
     if choice == 1:
@@ -49,7 +50,7 @@ def add_user():
 
 
     # creating new customer instance
-    user = User(name=name, account_type=account_type, account_balance=account_balance)
+    user = User(name=name, account_type=account_type, account_balance=account_balance, branch_id=id)
     # adding and commiting the new user to the database
     session.add(user)
     session.commit()
@@ -103,6 +104,8 @@ def check_balance(user_name):
 
 
 if __name__ == '__main__':
+  flag="y"
+  while flag =="y":  
     print("SELECT YOUR ROLE ")
     print("-----------------")
     print("1. Banker \n2. Customer ")
@@ -136,6 +139,8 @@ if __name__ == '__main__':
             print("Invalid Input...Exiting........")
     else:
         print("Invalid Input...Exiting........")
+    print("Do you want to continue : y or n ")
+    flag=input();
 
     
     

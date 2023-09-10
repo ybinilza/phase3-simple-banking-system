@@ -43,8 +43,19 @@ branchs = []
 
 # branch_name= ['RBC Toronto', 'RBC Ajax','RBC Whitby','RBC Niagara','RBC Waterloo','RBC Hamilton','RBC Calgery']
 
-for i in range(10):
+branch_code= {
+                "1" :'RBC Toronto', 
+                "2" : 'RBC Ajax',
+                "3" :'RBC Whitby',
+                "4" :'RBC Niagara',
+                "5" :'RBC Waterloo',
+                "6" :'RBC Hamilton',
+                "7"  :'RBC Calgery'
+                }
+
+for i in range(7):
     branch= Branch(
+        branch_name=branch_code[str(i+1)],
         branch_address=faker.address(),
         branch_contactno=faker.phone_number()
     )
@@ -53,4 +64,4 @@ for i in range(10):
 session.add_all(branchs)
 session.commit()
 
-#import ipdb; ipdb.set_trace()
+import ipdb; ipdb.set_trace()

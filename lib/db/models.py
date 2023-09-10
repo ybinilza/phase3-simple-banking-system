@@ -25,6 +25,7 @@ class User(Base):
     def __repr__(self):
         return f"Customer id :{self.id}: " \
             + f"{self.name}, " \
+            + f"Branch Id :  {self.branch_id}, " \
             + f"Account Type :  {self.account_type}, " \
             + f"Account Balance :  {self.account_balance}" 
 
@@ -33,12 +34,14 @@ class User(Base):
 class Branch(Base):
     __tablename__ = 'branch'
     id = Column(Integer(), primary_key=True)
+    branch_name=Column(String())
     branch_address= Column(String())
     branch_contactno=Column(String())
     users = relationship('User', back_populates='branch')
 
     def __repr__(self):
         return f"Branch : {self.id}: " \
+            + f"Branch Name : {self.branch_name}, " \
             + f"Branch Address : {self.branch_address}, " \
             + f"Contact Number : {self.branch_contactno} "
 
