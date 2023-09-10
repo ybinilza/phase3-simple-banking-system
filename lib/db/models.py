@@ -38,10 +38,24 @@ class Branch(Base):
     branch_address= Column(String())
     branch_contactno=Column(String())
     users = relationship('User', back_populates='branch')
+    employees = relationship('BankEmployeeDetails', back_populates='branch')
 
     def __repr__(self):
         return f"Branch : {self.id}: " \
             + f"Branch Name : {self.branch_name}, " \
             + f"Branch Address : {self.branch_address}, " \
             + f"Contact Number : {self.branch_contactno} "
+
+
+class BankEmployeeDetails(Base):
+    __tablename__ = 'bankemployeedetails'
+
+    id = Column(Integer(), primary_key=True)
+    name = Column(String())
+    designation = Column(String())
+    branch_id = Column(Integer, ForeignKey('branch.id'))
+    branch = relationship('Branch', back_populates='employees')
+
+    def __repr__(self):
+        return f"Employee ID: {self.id}, Name: {self.name}, Branch ID: {self.branch_id}, Designation: {self.designation}"
 

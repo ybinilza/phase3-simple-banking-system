@@ -1,4 +1,4 @@
-from models import User,Branch
+from models import User,Branch,BankEmployeeDetails
 from sqlalchemy import create_engine
 from sqlalchemy.ext.declarative import declarative_base
 from sqlalchemy.orm import sessionmaker
@@ -14,6 +14,7 @@ session = Session()
 # Delete existing data
 session.query(Branch).delete()
 session.query(User).delete()
+session.query(BankEmployeeDetails).delete()
 session.commit()
 
 
@@ -34,8 +35,6 @@ for i in range(10):
 
 session.add_all(users)
 session.commit()
-
-#import ipdb; ipdb.set_trace()
 
 # generating 10 random Bank branch details to fill the database
 
@@ -63,5 +62,20 @@ for i in range(7):
 
 session.add_all(branchs)
 session.commit()
+
+
+# generating 10 random Bank Employee details to fill the database
+employees=[]
+designations_bank=["Teller","Customer Service Representative","Loan Officer","Branch Manager","Financial Advisor","Risk Analyst","Compliance Officer","Credit Analyst","Operations Manager"]
+for i in range(10):
+    employee = BankEmployeeDetails(
+        name=faker.user_name(),
+        designation=random.choice(designations_bank),
+        branch_id=random.randint(1,7)
+    )
+    employees.append(employee)
+session.add_all(employees)
+session.commit()
+
 
 import ipdb; ipdb.set_trace()
