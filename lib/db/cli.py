@@ -76,7 +76,7 @@ def withdraw_money(user_name):
             session.query(User).filter_by(name=user_name).update({User.account_balance :amount})
             session.commit()
         else:
-            print("Sorry.. You dont have sufficent balance to withdraw funds")
+            print("Sorry.. You dont have sufficient balance to withdraw funds")
 
 
         

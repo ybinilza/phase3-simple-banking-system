@@ -41,7 +41,7 @@ session.commit()
 
 branchs = []
 
-# branch_name= ['RBC Toronto', 'RBC Ajax','RBC Whitby','RBC Niagara','RBC Waterloo','RBC Hamilton','RBC Calgery',]
+# branch_name= ['RBC Toronto', 'RBC Ajax','RBC Whitby','RBC Niagara','RBC Waterloo','RBC Hamilton','RBC Calgery']
 
 for i in range(10):
     branch= Branch(
