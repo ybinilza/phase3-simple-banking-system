@@ -34,7 +34,7 @@ def add_user():
     
     print("Select branch - \n1. RBC Toronto \n2. RBC Ajax  \n3. RBC Whitby  \n4. RBC Niagara \n5. RBC Waterloo \n6. RBC Hamilton\n7. RBC Calgery" )
     id=int(input())
-    print("1. Checking \n2. Savings \n13. High Interest Savings ")
+    print("1. Checking \n2. Savings \n3. High Interest Savings ")
     choice=int(input())
 
     if choice == 1:
