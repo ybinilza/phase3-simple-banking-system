@@ -2,6 +2,7 @@ SIMPLE BANKING SYSTEM
 -------------------------------
 Description
 Simple Banking System is a Python project that models a basic banking system using SQLAlchemy. 
+
 Features
 •	It allows the banker to create a new account 
 •	It allows the banker to view customer details
