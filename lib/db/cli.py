@@ -113,7 +113,7 @@ if __name__ == '__main__':
    # print(" 1. Show Customer Details \n 2. Add User \n 3. Deposit Money \n 4. Withdraw Money \n 5. Check Balance ") 
     if(role == 1):
         print("Please select the following options ")
-        print(" 1. Show Customer Details \n 2. Add User \n")
+        print(" 1. View Customer Details \n 2. Add User \n")
         choice=int(input("Enter your choice : "))
         if choice == 1:
             customer=show_customer_details()
