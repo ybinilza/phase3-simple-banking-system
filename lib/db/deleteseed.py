@@ -1,4 +1,4 @@
-from models import User,Branch
+from models import User,Branch,BankEmployeeDetails
 from sqlalchemy import create_engine
 from sqlalchemy.ext.declarative import declarative_base
 from sqlalchemy.orm import sessionmaker
@@ -13,4 +13,5 @@ session = Session()
 
 session.query(Branch).delete()
 session.query(User).delete()
+session.query(BankEmployeeDetails).delete()
 session.commit()
